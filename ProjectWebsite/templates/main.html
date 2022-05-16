@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            My Website
+        </title>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    </head>
+    <body>
+        <div class = "full">
+            <div class = "part1">
+                <h3 class = header>DETAILS OF MOBILE PHONE USE WHILE DRIVING</h3>
+            </div>
+            <div class = "part2">
+                <h3>DETECTED IMAGES</h3>
+                <h3>NUMBER PLATES</h3>
+                <h3>TIME STAMPS</h3>
+                <div></div>
+            </div>
+            <div class = "part3">
+                <div class = image_space>
+                    <ul>
+                        {% for img in imgs %}
+                        <li>
+                            <img src = "data:image/jpeg;base64,{{ img }}">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class = number_plate_space>
+                    <ul>
+                        {% for number_plate in number_plates %}
+                        <li class = "info">
+                            {{number_plate}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class = time_space>
+                    <ul>
+                        {% for time in times %}
+                        <li class = info>
+                            {{time}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class = notf_space>
+                    <ul>
+                        {% for id in ids %}
+                        <li class = send>
+                            <a type = "button" href =  "{{url_for('sendNotification', id = id)}}" class = "notf_button">
+                                Send Notification
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

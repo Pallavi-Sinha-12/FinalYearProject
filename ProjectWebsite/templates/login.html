@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    </head>
+
+    <body>
+        <h1>ILLEGAL MOBILE PHONE USERS MANAGEMENT PORTAL</h1>
+        <div class = "login-page">
+            <div class = "form">
+                <form autocomplete="off" method = POST action="{{ url_for('login') }}">
+                    <input type = "text" placeholder="user name" name = "username">
+                    <input type = "text" placeholder="password" name = "password">
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
